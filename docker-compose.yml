@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+   bt:
+     image: battery_historian_jsttime:latest
+     ports:
+       - "9999:9999"
