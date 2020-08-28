@@ -9,19 +9,21 @@
 
 ## 使い方
 1. Dockerインストール
-1. PowerShell -ExecutionPolicy RemoteSigned .\bt.ps1
+1. エクスプローラーからbt.cmdを実行
 1. localhost:9999をブラウザから起動
+1. (終了時) エクスプローラーからbt_stop.cmdを実行
 
 ## 詳細
-`docker build -t battery_historian_jsttime .`
-
-- Dockerfileを読み取り、battery_historian_jsttimeを作成。
-- (tzdataをとってきて、jstにする)
-
-`docker-compose up -d bt`
-
-- docker-compose.ymlを使い、サービスbtを起動。
-- (battery_historian_jsttimeは一度作ったら以降作らない。)
+1. `docker build -t battery_historian_jsttime .`
+    - Dockerfileを読み取り、battery_historian_jsttimeを作成。
+    - (tzdataをとってきて、jstにする)
+1. `docker-compose up -d bt`
+    - docker-compose.ymlを使い、サービスbtを起動。
+1. `docker-compose stop bt`
+    - docker-compose.ymlを使い、サービスbtを停止。
+1. `docker system prune -f`
+    - 不要なDockerオブジェクトを削除。
+    - https://docs.docker.jp/config/pruning.html
 
 ## adb関係
 - battery_historianはadb結果のビューアーなので、adbできないと意味がない。
